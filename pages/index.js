@@ -1,4 +1,4 @@
-import { Exportsantana } from "./santana"
+import  Exportsantana  from "./santana"
 
 export default function Home() {
     return (
