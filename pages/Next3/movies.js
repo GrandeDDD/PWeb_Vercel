@@ -6,7 +6,7 @@ export default function Movies({ initialData }) {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch(`https://www.omdbapi.com/?apikey=ca98445&s=${searchTerm}`);
+            const res = await fetch(`https://www.omdbapi.com/?apikey=ee5ef93d&s=${searchTerm}`);
             const searchData = await res.json();
             setData(searchData);
         }
