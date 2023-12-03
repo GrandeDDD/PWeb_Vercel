@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function Movie({ movie }) {
   return (
@@ -22,20 +22,19 @@ function MoviesList({ movies }) {
 }
 
 export default function Movies({ initialData }) {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("bagdad");
   const [data, setData] = useState(initialData);
 
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch(
-        `http://www.omdbapi.com/?apikey=ee5ef93d&s=${searchTerm}`
-      );
-      const searchData = await res.json();
-      setData(searchData);
-    }
+  const fetchData = async () => {
+    const res = await fetch(
+      `http://www.omdbapi.com/?apikey=ee5ef93d&s=${searchTerm}`
+    );
+    const searchData = await res.json();
+    setData(searchData);
+  };
 
-    fetchData();
-  }, [searchTerm]);
+  // Chamada inicial
+  fetchData();
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -46,7 +45,6 @@ export default function Movies({ initialData }) {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button>Pesquisar</button>{" "}
       </div>
       <div>
         {data && data.Search && <MoviesList movies={data.Search} />}
