@@ -33,10 +33,10 @@ export default function Movies({ initialData }) {
             <div >
                 {data && data.Search && data.Search.map((movie) => (
                     <div key={movie.imdbID}>
-                        <img src={movie.Poster} width="180px" alt={movie.Title} />
                         <h2>
                             {movie.Title} --- {movie.Year} --- {movie.Type}
                         </h2>
+                        <img src={movie.Poster} width="180px" alt={movie.Title} />
                     </div>
                 ))}
             </div>
