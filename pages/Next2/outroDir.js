@@ -1,4 +1,4 @@
-import  Exportsantana  from "../santana"
+import  Exportsantana  from "../Nex1/santana"
 
 export default function OutroDir() {
   return (
